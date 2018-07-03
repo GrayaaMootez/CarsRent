@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:with="lang=${#locale.language}" th:lang="${lang}">
+<head>
+
+<title>Vehicules</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Students</h1>
+		</div>
+		<div class="col-md-4">
+			<h3 th:inline="text">Welcome
+				[[${#httpServletRequest.remoteUser}]]</h3>
+		</div>
+		<div class="col-md-4" style="padding: 20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-body">A Basic Panel</div>
+
+
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+
+						<th scope="col">id</th>
+						<th scope="col">Brand</th>
+						<th scope="col">vehicleCurrentKm</th>
+						<th scope="col">carEngineSize</th>
+						<th scope="col">price</th>
+						<th scope="col">Actions</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="vhs : ${listVhs}">
+						<td th:text="${vhs.vehicleId}"></td>
+						<td th:text="${vhs.brand.brandName}"></td>
+						<td th:text="${vhs.vehicleCurrentKm}"></td>
+						<td th:text="${vhs.carEngineSize}"></td>
+						<td th:text="${vhs.price}"></td>
+						<td><a th:href="@{/vhs/{id}(id=${vhs.vehicleId})}"
+							class="btn btn-primary btn-xs">Add Course</a> <a
+							th:href="@{/vhs/edit/{id}(id=${vhs.vehicleId})}"
+							class="btn btn-primary btn-xs">Edit</a> <a
+							th:href="@{/vhs/delete/{id}(id=${vhs.vehicleId})}"
+							class="btn btn-danger btn-xs">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<a href="@{/add}" class="btn btn-primary">Add Student</a>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+</body>
+</html>

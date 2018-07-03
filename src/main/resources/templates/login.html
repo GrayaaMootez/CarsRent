@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Spring Boot MVC Security using Thymeleaf</title>
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+
+	<p th:if="${param.error}" class="error">Bad Credentials</p>
+
+	<div id="boxForm">
+		<h2 id="title">My Login Form</h2>
+
+		<form th:action="@{/login}" method="POST">
+			<input type="text" name="user" placeholder='Email'
+				class='text' required="required"/> <br /> <input type="password" name="psw"
+				placeholder='Password' class='text' required="required" /> <br /> <input type="submit"
+				value="Login" class='button' />
+		</form>
+	</div>
+
+	<script src="/js/index.js"></script>
+
+</body>
+</html>
