@@ -31,9 +31,9 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
 		}
 
 		if (admin) {
-			response.sendRedirect("/home");
+			response.sendRedirect("/carRent/admin/vhs");
 		} else {
-			response.sendRedirect("/user");
+			response.sendRedirect("/carRent/home");
 		}
 	}
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+
+<head>
+<title>Form Validation Demo | Carey Development Demos</title>
+<meta content="Form Validation Demo" name="description" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+
+	<div class="container py-3">
+		<div class="row">
+			<div class="mx-auto col-sm-6">
+				<!-- form user info -->
+				<div class="card">
+					<div class="card-header">
+						<h4 class="mb-0">User Information</h4>
+					</div>
+					<div class="card-body">
+						<form th:object="${vehicule}" th:action="@{add}" action="#"
+							method="post" class="form">
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{vehicleId}"  />
+									<p class="alert alert-danger" th:if="${#fields.hasErrors('vehicleId')}" th:errors="*{vehicleId}"></p>
+									
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<input type="number" class="form-control"
+										th:field="*{vehicleCurrentKm}" />
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control"
+										th:field="*{carEngineSize}" />
+								</div>
+							</div>
+
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{price}" />
+								</div>
+							</div>
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">First
+									name</label>
+								<div class="col-lg-9">
+									<select th:field="*{brand}">
+										<option th:each="br : ${brands}" th:value="${br.brandId}"
+											th:utext="${br.brandName}" />
+									</select>
+								</div>
+							</div>
+							<button type="submit" class="btn btn-success">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+</body>
+</html>

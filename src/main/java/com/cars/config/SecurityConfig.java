@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.AccessDeniedHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -16,27 +17,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	private MyAppUserDetailsService myAppUserDetailsService;
 
-
 	@Autowired
 	CustomizeAuthenticationSuccessHandler customizeAuthenticationSuccessHandler;
+
+    @Autowired
+    private AccessDeniedHandler accessDeniedHandler;
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
         .antMatchers("/").permitAll()
-        .antMatchers("/admin").hasRole("ADMIN")
-        .antMatchers("/home").hasRole("ADMIN")
+        .antMatchers("/admin/**").hasRole("ADMIN")
+        .antMatchers("/home/**").hasRole("USER")
 		.and().formLogin()  //login configuration
         .loginPage("/login")
-        .loginProcessingUrl("/login")
         .usernameParameter("user")
         .passwordParameter("psw")
         .successHandler(customizeAuthenticationSuccessHandler)
 		.and().logout()    //logout configuration
 		.logoutUrl("/logout")
-		.logoutSuccessUrl("/login")
-		.and().exceptionHandling() //exception handling configuration
-		.accessDeniedPage("/error");
+		.logoutSuccessUrl("/login").and()
+        .exceptionHandling().accessDeniedHandler(accessDeniedHandler);
+
+
 	}
     @Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {

@@ -2,44 +2,9 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-
-	<schema-selection match-schema="CARS"
-		match-table="ACTUALITE" />
-	<schema-selection match-schema="CARS"
-		match-table="USR_MEN" />
-	<schema-selection match-schema="CARS"
-		match-table="MENU_TREE" />
-	<schema-selection match-schema="CARS"
-		match-table="NBREVISIT" />
-	<schema-selection match-schema="CARS"
-		match-table="PROFIL" />
-	<schema-selection match-schema="CARS"
-		match-table="PROFIL_MENU_TREE" />
-	<schema-selection match-schema="CARS"
-		match-table="USR_MEN_TREE" />
-	<schema-selection match-schema="CARS"
-		match-table="USR_PROFIL_UTIL" />
-	<schema-selection match-schema="CARS"
-		match-table="IMAGES_TBL" />
-
 	<type-mapping>
-		<!-- length, scale and precision can be used to specify the mapping precisely -->
-		<sql-type jdbc-type="NUMERIC" precision='1'
-			hibernate-type="boolean" />
-		<!-- the type-mappings are ordered. This mapping will be consulted last, 
-			thus overridden by the previous one if precision=1 for the column -->
-		<sql-type jdbc-type="NUMERIC" hibernate-type="long" />
+		<sql-type jdbc-type="NUMERIC" not-null="false"
+			hibernate-type="java.lang.Long" />
+		<sql-type jdbc-type="NUMERIC" precision="1" hibernate-type="Boolean" />
 	</type-mapping>
-
-
-	<table-filter match-name="BOOKING" exclude="true"></table-filter>
-	<table-filter match-name="BRAND" exclude="true"></table-filter>
-	<table-filter match-name="CUST_BOOK" exclude="true"></table-filter>
-	<table-filter match-name="CUSTUMER" exclude="true"></table-filter>
-	<table-filter match-name="GADGET" exclude="true"></table-filter>
-	<table-filter match-name="INSURANCE" exclude="true"></table-filter>
-	<table-filter match-name="VEH_AV" exclude="true"></table-filter>
-	<table-filter match-name="VEHICLES" exclude="true"></table-filter>
-
-
 </hibernate-reverse-engineering>

@@ -23,7 +23,7 @@ import com.cars.service.BrandService;
 import com.cars.service.VehiculesService;
 
 @Controller
-@RequestMapping("/vhs")
+@RequestMapping("/admin/vhs")
 public class VehiclesController {
 
 	@Autowired
@@ -62,7 +62,7 @@ public class VehiclesController {
 			return "/admin/addVhs";
 		} else {
 			service.ajout(vehicule);
-			return "redirect:/vhs";
+			return "redirect:/admin/vhs";
 		}
 	}
 
@@ -75,11 +75,12 @@ public class VehiclesController {
 		redirectAttributes.addFlashAttribute("css", "success");
 		redirectAttributes.addFlashAttribute("msg", "User is deleted!");
 
-		return "redirect:/vhs";
+		return "redirect:/admin/vhs";
 	}
 
 	@RequestMapping(value = "/edit/{id}")
 	public String editVh(@PathVariable("id") Long id, Model model) {
+
 		model.addAttribute("vehicule", service.findById(id));
 		return "/admin/editVhs";
 	}

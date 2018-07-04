@@ -19,4 +19,30 @@ public class VehiculesServiceImpl implements VehiculesService {
 		return dao.findAll();
 	}
 
+	@Override
+	public void ajout(Vehicles vh) {
+		dao.save(vh);
+	}
+
+	@Override
+	public void modifier(Vehicles vh) {
+		dao.save(vh);
+	}
+
+	@Override
+	public void supp(Vehicles vh) {
+		dao.delete(vh);
+	}
+
+	@Override
+	public void suppById(Long id) {
+		dao.delete(id);
+
+	}
+
+	@Override
+	public Vehicles findById(Long id) {
+		return dao.findOne(id);
+	}
+
 }

@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Add student</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet"
+	th:href="@{css/bootstrap.min.css}" />
+</head>
+<body>
+	<div class="container">
+		<h1>New Vehicules</h1>
+		<div class="col-md-4">
+
+			<form th:object="${vehicule}" th:action="@{../add}" action="#"
+				method="post">
+
+
+				
+				<input type="number" th:field="*{vehicleId}" class="form-control"
+					placeholder="dd" required="required" />
+
+				<div style="clear: both; display: block; height: 10px;"></div>
+
+				<input type="number" th:field="*{vehicleCurrentKm}"
+					class="form-control" placeholder="vehicleCurrentKm"
+					required="required" />
+
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="number" th:field="*{carEngineSize}"
+					class="form-control" placeholder="carEngineSize"
+					required="required" />
+
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="number" th:field="*{price}" class="form-control"
+					placeholder="price" required="required" />
+
+				<div style="clear: both; display: block; height: 10px;"></div>
+
+				<select th:field="*{brand}">
+					<option th:each="br : ${brands}" th:value="${br.brandId}"
+						th:utext="${br.brandName}" />
+				</select>
+
+
+				<div style="clear: both; display: block; height: 10px;"></div>
+				<input type="submit" class="btn btn-primary" value="Save"></input>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

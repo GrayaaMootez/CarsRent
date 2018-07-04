@@ -4,6 +4,7 @@ package com.cars.model;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -167,7 +168,7 @@ public class UsrMen implements java.io.Serializable {
 		this.utilValid = utilValid;
 	}
 
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usrMen")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "usrMen")
 	public Set<UsrProfilUtil> getUsrProfilUtils() {
 		return this.usrProfilUtils;
 	}
