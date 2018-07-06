@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-	th:with="lang=${#locale.language}" th:lang="${lang}">
+	th:with="lang=${#locale.language}" th:lang="${lang}"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <head>
 
 <title>Vehicules</title>
@@ -29,11 +30,11 @@
 		</div>
 
 
-		<div class="panel panel-default" style="height: 450px">
+		<div class="panel panel-default">
 			<div class="panel-body"></div>
 
 
-			<table class="table">
+			<table class="table" dt:table="true" id="myTableId">
 				<thead class="thead-dark">
 					<tr>
 

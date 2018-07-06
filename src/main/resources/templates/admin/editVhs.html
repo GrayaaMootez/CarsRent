@@ -27,16 +27,8 @@
 					<div class="card-body">
 						<form th:object="${vehicule}" th:action="@{../add}" action="#"
 							method="post" class="form">
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">ID</label>
-								<div class="col-lg-9">
-									<input type="number" class="form-control" th:field="*{vehicleId}" />
-									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('vehicleId')}"
-										th:errors="*{vehicleId}"></p>
 
-								</div>
-							</div>
+							<input type="hidden" class="form-control" th:field="*{vehicleId}" />
 
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">Current

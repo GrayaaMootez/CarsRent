@@ -12,22 +12,22 @@
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
-				<h1>Login</h1>
+				<h1><div th:text="#{login}"></div></h1>
 			</div>
 			<form th:action="@{/login}" method="POST">
 
 			<div class="login-form">
 				<div class="control-group">
-				<input type="text" class="login-field" value="" placeholder="username" id="login-name" name="user" required="required"/>
+				<input type="text" class="login-field"  th:placeholder="#{username}" id="login-name" name="user" required="required"/>
 				<label class="login-field-icon fui-user" for="login-name"></label>
 				</div>
 
 				<div class="control-group">
-				<input type="password" class="login-field" value="" placeholder="password" id="login-pass" name="psw" required="required"/>
+				<input type="password" class="login-field" th:placeholder="#{password}" id="login-pass" name="psw" required="required"/>
 				<label class="login-field-icon fui-lock" for="login-pass"></label>
 				</div>
 
-				<button class="btn btn-primary btn-large btn-block">login</button>
+				<button class="btn btn-primary btn-large btn-block"><div th:text="#{login}"></div> </button>
 			</div>
 			</form>
 		</div>

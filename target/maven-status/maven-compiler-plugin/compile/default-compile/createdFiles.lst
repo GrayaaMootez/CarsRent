@@ -9,6 +9,7 @@ com\cars\model\Profil.class
 com\cars\service\CustumerService.class
 com\cars\config\MyAccessDeniedHandler.class
 com\cars\controller\UserInfoController.class
+com\cars\config\DandelionConfig.class
 com\cars\dao\GadgetDao.class
 com\cars\service\UsrMenImpl.class
 com\cars\model\Custumer.class
@@ -37,11 +38,11 @@ com\cars\model\Gadget.class
 com\cars\service\VehiculesServiceImpl.class
 com\cars\dao\CustumerDao.class
 com\cars\dao\BrandDao.class
+com\cars\config\MyErrorController.class
 com\cars\service\VehAvServiceImpl.class
 com\cars\model\Vehicles.class
 com\cars\dao\UserMenDao.class
 com\cars\dao\VehiculesDao.class
-com\cars\bean\VehiculeController.class
 com\cars\model\UsrMen.class
 com\cars\service\VehAvService.class
 com\cars\service\CustumerServiceImpl.class

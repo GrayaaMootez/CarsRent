@@ -1,7 +1,8 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
-	th:with="lang=${#locale.language}" th:lang="${lang}">
+	th:with="lang=${#locale.language}" th:lang="${lang}"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <head>
 
 <title>Vehicules</title>
@@ -16,7 +17,7 @@
 	<div th:include="fragments/topmenuheader :: header"></div>
 	<div class="container">
 		<div class="col-md-4">
-			<h1>Students</h1>
+			<h1>Cars</h1>
 		</div>
 		<div class="col-md-4">
 			<h3 th:inline="text">Welcome
@@ -29,18 +30,18 @@
 		</div>
 
 
-		<div class="panel panel-default">
-			<div class="panel-body">A Basic Panel</div>
+		<div class="panel panel-default" style="height: 450px">
+			<div class="panel-body"></div>
 
 
-			<table class="table">
+			<table class="table" dt:table="true">
 				<thead class="thead-dark">
 					<tr>
 
 						<th scope="col">id</th>
 						<th scope="col">Brand</th>
-						<th scope="col">vehicleCurrentKm</th>
-						<th scope="col">carEngineSize</th>
+						<th scope="col">Current Km</th>
+						<th scope="col">Car Engine Size</th>
 						<th scope="col">price</th>
 						<th scope="col">Actions</th>
 
@@ -53,11 +54,9 @@
 						<td th:text="${vhs.vehicleCurrentKm}"></td>
 						<td th:text="${vhs.carEngineSize}"></td>
 						<td th:text="${vhs.price}"></td>
-						<td><a th:href="@{/vhs/{id}(id=${vhs.vehicleId})}"
-							class="btn btn-primary btn-xs">Add Course</a> <a
-							th:href="@{/vhs/edit/{id}(id=${vhs.vehicleId})}"
+						<td><a th:href="@{/admin/vhs/edit/{id}(id=${vhs.vehicleId})}"
 							class="btn btn-primary btn-xs">Edit</a> <a
-							th:href="@{/vhs/delete/{id}(id=${vhs.vehicleId})}"
+							th:href="@{/admin/vhs/delete/{id}(id=${vhs.vehicleId})}"
 							class="btn btn-danger btn-xs">Delete</a></td>
 					</tr>
 				</tbody>
@@ -65,7 +64,7 @@
 		</div>
 
 
-		<a href="@{/add}" class="btn btn-primary">Add Student</a>
+		<a href="/carRent/admin/vhs/add" class="btn btn-primary">Add Cars</a>
 	</div>
 	<div th:include="fragments/homefooter :: footer"></div>
 </body>
