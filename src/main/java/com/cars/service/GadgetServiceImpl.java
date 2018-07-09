@@ -5,48 +5,48 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.dao.GadgetDao;
+import com.cars.Repository.GadgetRepository;
 import com.cars.model.Gadget;
 
 @Service
 public class GadgetServiceImpl implements GadgetService{
 
 	@Autowired
-	private GadgetDao dao;
+	private GadgetRepository repository;
 
 
 	@Override
 	public List<Gadget> findAll() {
-		return dao.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void ajout(Gadget gadget) {
-		dao.saveAndFlush(gadget);
+		repository.saveAndFlush(gadget);
 
 	}
 
 	@Override
 	public void modifier(Gadget gadget) {
-		dao.saveAndFlush(gadget);
+		repository.saveAndFlush(gadget);
 
 	}
 
 	@Override
 	public void supp(Gadget gadget) {
-		dao.delete(gadget);
+		repository.delete(gadget);
 
 	}
 
 	@Override
 	public void suppById(Long id) {
-		dao.delete(id);
+		repository.delete(id);
 
 	}
 
 	@Override
 	public Gadget findById(Long id) {
-		return dao.findOne(id);
+		return repository.findOne(id);
 	}
 
 }

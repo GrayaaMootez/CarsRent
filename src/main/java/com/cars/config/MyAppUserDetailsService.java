@@ -12,7 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.cars.dao.UserMenDao;
+import com.cars.Repository.UserMenRepository;
 import com.cars.model.UsrMen;
 import com.cars.model.UsrProfilUtil;
 
@@ -20,14 +20,14 @@ import com.cars.model.UsrProfilUtil;
 public class MyAppUserDetailsService implements UserDetailsService {
 
 	@Autowired
-	private UserMenDao userDao;
+	private UserMenRepository userRepository;
 
 
 	@Override
 	public UserDetails loadUserByUsername(String userName)
 			throws UsernameNotFoundException {
 
-		UsrMen activeUserInfo = userDao.findUser(userName);
+		UsrMen activeUserInfo = userRepository.findUser(userName);
 
         if (activeUserInfo == null) {
             throw new UsernameNotFoundException(userName);

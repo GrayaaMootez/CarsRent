@@ -33,7 +33,6 @@ com\cars\model\Brand.class
 com\cars\service\BrandServiceImpl.class
 com\cars\model\UsrMenTreeId.class
 com\cars\model\MenuTree.class
-com\cars\utils\BrandConvrter.class
 com\cars\model\Gadget.class
 com\cars\service\VehiculesServiceImpl.class
 com\cars\dao\CustumerDao.class

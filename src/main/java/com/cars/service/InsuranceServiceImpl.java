@@ -5,47 +5,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.dao.InsuranceDao;
+import com.cars.Repository.InsuranceRepository;
 import com.cars.model.Insurance;
 
 @Service
 public class InsuranceServiceImpl implements InsuranceService{
 
 	@Autowired
-	private InsuranceDao dao;
+	private InsuranceRepository repository;
 
 	@Override
 	public List<Insurance> findAll() {
-		return dao.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void ajout(Insurance insurance) {
-		dao.saveAndFlush(insurance);
+		repository.saveAndFlush(insurance);
 
 	}
 
 	@Override
 	public void modifier(Insurance insurance) {
-		dao.saveAndFlush(insurance);
+		repository.saveAndFlush(insurance);
 
 	}
 
 	@Override
 	public void supp(Insurance insurance) {
-		dao.delete(insurance);
+		repository.delete(insurance);
 
 	}
 
 	@Override
 	public void suppById(Long id) {
-		dao.delete(id);
+		repository.delete(id);
 
 	}
 
 	@Override
 	public Insurance findById(Long id) {
-		return dao.findOne(id);
+		return repository.findOne(id);
 	}
 
 }

@@ -5,47 +5,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.dao.BookingDao;
+import com.cars.Repository.BookingRepository;
 import com.cars.model.Booking;
 
 @Service
 public class BookingServiceImlp implements BookingService {
 
 	@Autowired
-	private BookingDao dao;
+	private BookingRepository repository;
 
 	@Override
 	public List<Booking> findAll() {
-		return dao.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void ajout(Booking bk) {
-		dao.saveAndFlush(bk);
+		repository.saveAndFlush(bk);
 
 	}
 
 	@Override
 	public void modifier(Booking bk) {
-		dao.saveAndFlush(bk);
+		repository.saveAndFlush(bk);
 
 	}
 
 	@Override
 	public void supp(Booking bk) {
-		dao.delete(bk);
+		repository.delete(bk);
 
 	}
 
 	@Override
 	public void suppById(Long id) {
-		dao.delete(id);
+		repository.delete(id);
 
 	}
 
 	@Override
 	public Booking findById(Long id) {
-		return dao.findOne(id);
+		return repository.findOne(id);
 	}
 
 }

@@ -5,47 +5,47 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cars.dao.VehAvDao;
+import com.cars.Repository.VehAvRepository;
 import com.cars.model.VehAv;
 
 @Repository
 public class VehAvServiceImpl implements VehAvService {
 
 	@Autowired
-	private VehAvDao dao;
+	private VehAvRepository repository;
 
 	@Override
 	public List<VehAv> findAll() {
-		return dao.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void ajout(VehAv vh) {
-		dao.saveAndFlush(vh);
+		repository.saveAndFlush(vh);
 
 	}
 
 	@Override
 	public void modifier(VehAv vh) {
-		dao.saveAndFlush(vh);
+		repository.saveAndFlush(vh);
 
 	}
 
 	@Override
 	public void supp(VehAv vh) {
-		dao.delete(vh);
+		repository.delete(vh);
 
 	}
 
 	@Override
 	public void suppById(Long id) {
-		dao.delete(id);
+		repository.delete(id);
 
 	}
 
 	@Override
 	public VehAv findById(Long id) {
-		return dao.findOne(id);
+		return repository.findOne(id);
 	}
 
 }

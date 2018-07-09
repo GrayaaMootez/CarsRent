@@ -5,46 +5,46 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.dao.BrandDao;
+import com.cars.Repository.BrandRepository;
 import com.cars.model.Brand;
 
 @Service
 public class BrandServiceImpl implements BrandService {
 
 	@Autowired
-	private BrandDao dao;
+	private BrandRepository repository;
 
 	@Override
 	public List<Brand> findAll() {
-		return dao.findAll();
+		return repository.findAll();
 	}
 
 	@Override
 	public void ajout(Brand br) {
-		dao.saveAndFlush(br);
+		repository.saveAndFlush(br);
 
 	}
 
 	@Override
 	public void modifier(Brand br) {
-		dao.saveAndFlush(br);
+		repository.saveAndFlush(br);
 
 	}
 
 	@Override
 	public void supp(Brand br) {
-		dao.delete(br);
+		repository.delete(br);
 
 	}
 
 	@Override
 	public void suppById(Double id) {
-		dao.delete(id);
+		repository.delete(id);
 
 	}
 
 	@Override
 	public Brand findById(Double id) {
-		return dao.findOne(id);
+		return repository.findOne(id);
 	}
 }
