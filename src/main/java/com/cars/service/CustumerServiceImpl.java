@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.CustumerRepository;
 import com.cars.model.Custumer;
+import com.cars.repository.CustumerRepository;
 
 @Service
 public class CustumerServiceImpl implements CustumerService {

@@ -3,8 +3,8 @@ package com.cars.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.UserMenRepository;
 import com.cars.model.UsrMen;
+import com.cars.repository.UserMenRepository;
 
 @Service
 public class UsrMenImpl implements UserMenService {

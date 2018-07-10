@@ -1,4 +1,4 @@
-package com.cars.Repository;
+package com.cars.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

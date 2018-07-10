@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.BrandRepository;
 import com.cars.model.Brand;
+import com.cars.repository.BrandRepository;
 
 @Service
 public class BrandServiceImpl implements BrandService {

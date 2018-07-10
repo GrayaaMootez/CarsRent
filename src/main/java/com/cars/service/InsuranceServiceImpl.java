@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.InsuranceRepository;
 import com.cars.model.Insurance;
+import com.cars.repository.InsuranceRepository;
 
 @Service
 public class InsuranceServiceImpl implements InsuranceService{

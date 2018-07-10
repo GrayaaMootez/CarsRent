@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.VehiculesRepository;
 import com.cars.model.Vehicles;
+import com.cars.repository.VehiculesRepository;
 
 @Service
 public class VehiculesServiceImpl implements VehiculesService {
@@ -20,8 +20,8 @@ public class VehiculesServiceImpl implements VehiculesService {
 	}
 
 	@Override
-	public void ajout(Vehicles vh) {
-		repository.save(vh);
+	public Vehicles ajout(Vehicles vh) {
+		return repository.save(vh);
 	}
 
 	@Override

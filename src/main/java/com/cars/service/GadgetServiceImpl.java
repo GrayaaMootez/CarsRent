@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.GadgetRepository;
 import com.cars.model.Gadget;
+import com.cars.repository.GadgetRepository;
 
 @Service
 public class GadgetServiceImpl implements GadgetService{

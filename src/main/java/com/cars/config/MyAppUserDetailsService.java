@@ -12,9 +12,9 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.UserMenRepository;
 import com.cars.model.UsrMen;
 import com.cars.model.UsrProfilUtil;
+import com.cars.repository.UserMenRepository;
 
 @Service
 public class MyAppUserDetailsService implements UserDetailsService {

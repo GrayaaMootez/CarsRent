@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.cars.Repository.VehAvRepository;
 import com.cars.model.VehAv;
+import com.cars.repository.VehAvRepository;
 
 @Repository
 public class VehAvServiceImpl implements VehAvService {

@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cars.Repository.BookingRepository;
 import com.cars.model.Booking;
+import com.cars.repository.BookingRepository;
 
 @Service
 public class BookingServiceImlp implements BookingService {

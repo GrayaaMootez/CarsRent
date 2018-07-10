@@ -8,7 +8,7 @@ public interface VehiculesService {
 
 	List<Vehicles> findAll();
 
-	void ajout(Vehicles vh);
+	Vehicles ajout(Vehicles vh);
 
 	void modifier(Vehicles vh);
 
