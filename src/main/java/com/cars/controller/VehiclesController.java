@@ -7,7 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -38,7 +38,7 @@ public class VehiclesController {
 	}
 
 	@RequestMapping(value = "", method = RequestMethod.GET)
-	public String listV(Model model) {
+	public String listV(ModelMap model) {
 
 		List<Vehicles> list = service.findAll();
 
@@ -47,7 +47,7 @@ public class VehiclesController {
 	}
 
 	@RequestMapping(value = "add", method = RequestMethod.GET)
-	public String showAddUserForm(Model model) {
+	public String addVhs(ModelMap model) {
 		Vehicles vh=new Vehicles();
 		model.addAttribute("vehicule", vh);
 
@@ -56,9 +56,8 @@ public class VehiclesController {
 
 
 	@RequestMapping(value = "add", method = RequestMethod.POST)
-	public String save(@Valid @ModelAttribute("vehicule") Vehicles vehicule, BindingResult result, Model model) {
+	public String save(@Valid @ModelAttribute("vehicule") Vehicles vehicule, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
-			System.out.println("eeeeeeeeeeerrrrrrrrrrrrrrrrrrr");
 			return "/admin/addVhs";
 		} else {
 			service.ajout(vehicule);
@@ -79,7 +78,7 @@ public class VehiclesController {
 	}
 
 	@RequestMapping(value = "/edit/{id}")
-	public String editVh(@PathVariable("id") Long id, Model model) {
+	public String editVh(@PathVariable("id") Long id, ModelMap model) {
 
 		model.addAttribute("vehicule", service.findById(id));
 		return "/admin/editVhs";
