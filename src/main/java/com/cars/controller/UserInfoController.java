@@ -14,8 +14,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class UserInfoController {
 
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/{locale:en|fr}/login", method = RequestMethod.GET)
 	public String loginPage() {
+		return "login";
+	}
+
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String loginPage2() {
 		return "login";
 	}
 

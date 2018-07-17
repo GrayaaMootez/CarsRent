@@ -10,6 +10,12 @@
 
 <body>
 
+	<div
+		style="text-align: right; padding: 5px; margin: 5px 0px; background: #ccc;">
+		<a th:href="@{/en/login}">Login (English)</a> &nbsp;|&nbsp; <a
+			th:href="@{/fr/login}">Login (French)</a>
+	</div>
+
 	<div class="login">
 		<div class="login-screen">
 			<div class="app-title">
@@ -30,8 +36,9 @@
 					<div class="control-group">
 						<input type="password" class="login-field"
 							th:placeholder="#{password}" id="login-pass" name="psw"
-							required="required" pattern="^[a-zA-Z0-9]{8,}$"  th:title="#{login.error.length}"/> <label class="login-field-icon fui-lock"
-							for="login-pass"></label>
+							required="required" pattern="^[a-zA-Z0-9]{8,}$"
+							th:title="#{login.error.length}" /> <label
+							class="login-field-icon fui-lock" for="login-pass"></label>
 					</div>
 
 					<button class="btn btn-primary btn-large btn-block">
