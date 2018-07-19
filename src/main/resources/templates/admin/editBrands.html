@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+
+<head>
+<title>Form Validation Demo | Carey Development Demos</title>
+<meta content="Form Validation Demo" name="description" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+
+	<div class="container py-3">
+		<div class="row">
+			<div class="mx-auto col-sm-6">
+				<!-- form user info -->
+				<div class="card">
+					<div class="card-header">
+						<h4 class="mb-0">Edit Brands</h4>
+					</div>
+					<div class="card-body">
+						<form th:object="${brand}" th:action="@{../add}" action="#"
+							method="post" class="form">
+
+							<input type="hidden" class="form-control" th:field="*{brandId}" />
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">name
+								</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{brandName}" />
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('brandName')}"
+										th:errors="*{brandName}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">model
+								</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{modelName}" />
+
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('modelName')}"
+										th:errors="*{modelName}"></p>
+								</div>
+							</div>
+
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">category</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{category}" />
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('category')}"
+										th:errors="*{category}"></p>
+								</div>
+							</div>
+
+							<button type="submit" class="btn btn-success">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+</body>
+</html>

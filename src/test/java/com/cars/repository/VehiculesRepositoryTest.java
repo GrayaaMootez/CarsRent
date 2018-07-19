@@ -30,7 +30,7 @@ public class VehiculesRepositoryTest {
 	@Test
 	public void findOne() {
 
-		Brand b = new Brand(1, "BMW", "1 series", "Convertible");
+		Brand b = new Brand(1d, "BMW", "1 series", "Convertible");
 		Vehicles v1 = new Vehicles(1L, b, 3293L, 1.7, 119L);
 		entityManager.persist(b);
 		entityManager.persist(v1);
@@ -42,7 +42,7 @@ public class VehiculesRepositoryTest {
 	@Test()
 	public void delete() {
 
-		Brand b = new Brand(1, "BMW", "1 series", "Convertible");
+		Brand b = new Brand(1d, "BMW", "1 series", "Convertible");
 		Vehicles v1 = new Vehicles(1L, b, 3293L, 1.7, 119L);
 		entityManager.persist(b);
 		entityManager.persist(v1);
@@ -53,7 +53,7 @@ public class VehiculesRepositoryTest {
 	@Test
 	public void findAll() {
 
-		Brand b = new Brand(1, "BMW", "1 series", "Convertible");
+		Brand b = new Brand(1d, "BMW", "1 series", "Convertible");
 
 		Vehicles v1 = new Vehicles(1L, b, 3293L, 1.7, 119L);
 		Vehicles v2 = new Vehicles(2L, b, 4785L, 2.5, 178L);
@@ -71,7 +71,7 @@ public class VehiculesRepositoryTest {
 	@Test()
 	public void save() {
 
-		Brand b = new Brand(1, "BMW", "1 series", "Convertible");
+		Brand b = new Brand(1d, "BMW", "1 series", "Convertible");
 		Vehicles v1 = new Vehicles(1L, b, 3293L, 1.7, 119L);
 
 		repositoryb.save(b);
@@ -83,7 +83,7 @@ public class VehiculesRepositoryTest {
 	@Test()
 	public void modify() {
 
-		Brand b = new Brand(1, "BMW", "1 series", "Convertible");
+		Brand b = new Brand(1d, "BMW", "1 series", "Convertible");
 		Vehicles v1 = new Vehicles(1L, b, 3293L, 1.7, 119L);
 		entityManager.persist(b);
 		entityManager.persist(v1);

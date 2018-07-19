@@ -22,68 +22,57 @@
 				<!-- form user info -->
 				<div class="card">
 					<div class="card-header">
-						<h4 class="mb-0">Add Cars</h4>
+						<h4 class="mb-0">Add Brands</h4>
 					</div>
 					<div class="card-body">
-						<form th:object="${vehicule}" th:action="@{add}" action="#"
+						<form th:object="${brand}" th:action="@{add}" action="#"
 							method="post" class="form">
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">ID</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control" th:field="*{vehicleId}" />
+									<input type="text" class="form-control" th:field="*{brandId}" />
 									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('vehicleId')}"
-										th:errors="*{vehicleId}"></p>
+										th:if="${#fields.hasErrors('brandId')}" th:errors="*{brandId}"></p>
 
 								</div>
 							</div>
 
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Current
-									Km </label>
-								<div class="col-lg-9">
-									<input type="number" class="form-control"
-										th:field="*{vehicleCurrentKm}" />
-									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('vehicleCurrentKm')}"
-										th:errors="*{vehicleCurrentKm}"></p>
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Car
-									Engine Size</label>
+								<label class="col-lg-3 col-form-label form-control-label">name
+								</label>
 								<div class="col-lg-9">
 									<input type="text" class="form-control"
-										th:field="*{carEngineSize}" />
+										th:field="*{brandName}" />
 									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('carEngineSize')}"
-										th:errors="*{carEngineSize}"></p>
+										th:if="${#fields.hasErrors('brandName')}"
+										th:errors="*{brandName}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">model
+								</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{modelName}" />
+
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('modelName')}"
+										th:errors="*{modelName}"></p>
 								</div>
 							</div>
 
 
 
 							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Price</label>
+								<label class="col-lg-3 col-form-label form-control-label">category</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control" th:field="*{price}" />
+									<input type="text" class="form-control" th:field="*{category}" />
 									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></p>
+										th:if="${#fields.hasErrors('category')}"
+										th:errors="*{category}"></p>
+								</div>
+							</div>
 
-								</div>
-							</div>
-							<div class="form-group row">
-								<label class="col-lg-3 col-form-label form-control-label">Brand</label>
-								<div class="col-lg-9">
-									<select th:field="*{brand}">
-										<option th:each="br : ${brands}" th:value="${br.brandId}"
-											th:utext="${br.brandName}" />
-									</select>
-									<p class="alert alert-danger"
-										th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}"></p>
-								</div>
-							</div>
 							<button type="submit" class="btn btn-success">Submit</button>
 						</form>
 					</div>
