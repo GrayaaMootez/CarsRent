@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:with="lang=${#locale.language}" th:lang="${lang}"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+
+<title>Gadgets</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Gadgets</h1>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body"></div>
+
+			<table class="table" dt:table="true" id="myTableId1">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">id</th>
+						<th scope="col">Name</th>
+						<th scope="col">Actions</th>
+
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="gadget : ${gadgets}">
+						<td th:text="${gadget.gadgetId}"></td>
+						<td th:text="${gadget.gadType}"></td>
+						<td><a
+							th:href="@{/admin/gadget/edit/{id}(id=${gadget.gadgetId})}"
+							class="btn btn-primary btn-xs">Edit</a> <a
+							th:href="@{/admin/gadget/delete/{id}(id=${gadget.gadgetId})}"
+							class="btn btn-danger btn-xs">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<a th:href="@{/admin/gadget/add}" class="btn btn-primary">Add
+			Gadgets</a>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+
+</body>
+</html>
