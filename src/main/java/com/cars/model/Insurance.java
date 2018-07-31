@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -28,6 +29,11 @@ public class Insurance implements java.io.Serializable {
 	private Set<Booking> bookings = new HashSet<Booking>(0);
 
 	public Insurance() {
+	}
+
+	@Transient
+	public boolean isNew() {
+		return (this.getInsuranceId() == null);
 	}
 
 	public Insurance(Long insuranceId, String insType) {
@@ -68,6 +74,44 @@ public class Insurance implements java.io.Serializable {
 
 	public void setBookings(Set<Booking> bookings) {
 		this.bookings = bookings;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((insType == null) ? 0 : insType.hashCode());
+		result = prime * result + ((insuranceId == null) ? 0 : insuranceId.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		Insurance other = (Insurance) obj;
+		if (insType == null) {
+			if (other.insType != null) {
+				return false;
+			}
+		} else if (!insType.equals(other.insType)) {
+			return false;
+		}
+		if (insuranceId == null) {
+			if (other.insuranceId != null) {
+				return false;
+			}
+		} else if (!insuranceId.equals(other.insuranceId)) {
+			return false;
+		}
+		return true;
 	}
 
 }

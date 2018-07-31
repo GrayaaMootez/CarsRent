@@ -1,8 +1,8 @@
 package com.cars.model;
 // Generated 6 juin 2018 18:04:52 by Hibernate Tools 4.3.5.Final
 
-import java.math.BigDecimal;
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,7 +20,7 @@ import javax.persistence.TemporalType;
 @Table(name = "VEH_AV")
 public class VehAv implements java.io.Serializable {
 
-	private BigDecimal vehAvId;
+	private Long vehAvId;
 	private Vehicles vehicles;
 	private Date isAvailUntil;
 	private Date isAvailFrom;
@@ -28,12 +28,12 @@ public class VehAv implements java.io.Serializable {
 	public VehAv() {
 	}
 
-	public VehAv(BigDecimal vehAvId, Vehicles vehicles) {
+	public VehAv(Long vehAvId, Vehicles vehicles) {
 		this.vehAvId = vehAvId;
 		this.vehicles = vehicles;
 	}
 
-	public VehAv(BigDecimal vehAvId, Vehicles vehicles, Date isAvailUntil, Date isAvailFrom) {
+	public VehAv(Long vehAvId, Vehicles vehicles, Date isAvailUntil, Date isAvailFrom) {
 		this.vehAvId = vehAvId;
 		this.vehicles = vehicles;
 		this.isAvailUntil = isAvailUntil;
@@ -43,11 +43,11 @@ public class VehAv implements java.io.Serializable {
 	@Id
 
 	@Column(name = "VEH_AV_ID", unique = true, nullable = false, precision = 22, scale = 0)
-	public BigDecimal getVehAvId() {
+	public Long getVehAvId() {
 		return this.vehAvId;
 	}
 
-	public void setVehAvId(BigDecimal vehAvId) {
+	public void setVehAvId(Long vehAvId) {
 		this.vehAvId = vehAvId;
 	}
 

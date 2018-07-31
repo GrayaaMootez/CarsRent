@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -28,6 +29,11 @@ public class Gadget implements java.io.Serializable {
 	private Set<Booking> bookings = new HashSet<Booking>(0);
 
 	public Gadget() {
+	}
+
+	@Transient
+	public boolean isNew() {
+		return (this.getGadgetId() == null);
 	}
 
 	public Gadget(Long gadgetId, String gadType) {

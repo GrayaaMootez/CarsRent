@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:with="lang=${#locale.language}" th:lang="${lang}"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
+<head>
+
+<title>Vehicules</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Cars</h1>
+		</div>
+		<div class="col-md-4">
+			<h3 th:inline="text">Welcome
+				[[${#httpServletRequest.remoteUser}]]</h3>
+		</div>
+		<div class="col-md-4" style="padding: 20px 0">
+			<form th:action="@{/logout}" method="post">
+				<input type="submit" value="Sign Out" class="btn btn-danger" />
+			</form>
+		</div>
+
+
+		<div class="panel panel-default">
+			<div class="panel-body"></div>
+
+
+
+		</div>
+
+
+		<a href="/carRent/admin/vhs/add" class="btn btn-primary">Add Cars</a>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+</body>
+</html>

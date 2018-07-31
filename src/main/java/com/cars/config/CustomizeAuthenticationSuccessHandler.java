@@ -33,7 +33,7 @@ public class CustomizeAuthenticationSuccessHandler implements AuthenticationSucc
 		if (admin) {
 			response.sendRedirect("/carRent/admin/vhs");
 		} else {
-			response.sendRedirect("/carRent/home");
+			response.sendRedirect("/carRent/client/home");
 		}
 	}
 }

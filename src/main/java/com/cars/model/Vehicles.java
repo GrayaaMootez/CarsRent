@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -45,6 +46,11 @@ public class Vehicles implements java.io.Serializable {
 	private Set<Booking> bookings = new HashSet<Booking>(0);
 
 	public Vehicles() {
+	}
+
+	@Transient
+	public boolean isNew() {
+		return (this.getVehicleId() == null);
 	}
 
 	public Vehicles(Long vehicleId, Brand brand, Long vehicleCurrentKm, double carEngineSize, Long price) {

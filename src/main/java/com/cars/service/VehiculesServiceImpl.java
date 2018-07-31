@@ -45,4 +45,9 @@ public class VehiculesServiceImpl implements VehiculesService {
 		return repository.findOne(id);
 	}
 
+	@Override
+	public List<Long> vehiculesAvaible() {
+		return repository.vehiculesAvaible();
+	}
+
 }

@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
@@ -32,6 +33,11 @@ public class Brand implements java.io.Serializable {
 	private Set<Vehicles> vehicleses = new HashSet<Vehicles>(0);
 
 	public Brand() {
+	}
+
+	@Transient
+	public boolean isNew() {
+		return (this.getBrandId() == null);
 	}
 
 	public Brand(Double brandId, String brandName, String modelName, String category) {

@@ -41,6 +41,10 @@ public class InsuranceController {
 		if (result.hasErrors()) {
 			return "/admin/addInsr";
 		} else {
+
+			Insurance i=service.findById(insr.getInsuranceId());
+			System.out.println(i.equals(null));
+
 		service.ajout(insr);
 			return "redirect:/admin/insr";
 		}

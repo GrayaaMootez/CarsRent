@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+
+<head>
+<title>Form Validation Demo | Carey Development Demos</title>
+<meta content="Form Validation Demo" name="description" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
+
+</head>
+
+<body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+
+	<div class="container py-3">
+		<div class="row">
+			<div class="mx-auto col-sm-6">
+				<!-- form user info -->
+				<div class="card">
+					<div class="card-header">
+						<h4 class="mb-0">Add Booking</h4>
+					</div>
+					<div class="card-body">
+						<form th:object="${booking}" th:action="@{add}" action="#"
+							method="post" class="form">
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">gadget</label>
+								<div class="col-lg-9">
+									<select th:field="*{gadget}">
+										<option th:each="gd : ${gadgets}" th:value="${gd.gadgetId}"
+											th:utext="${gd.gadType}" />
+									</select>
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('gadget')}" th:errors="*{gadget}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">insurance</label>
+								<div class="col-lg-9">
+									<select th:field="*{insurance}">
+										<option th:each="in : ${ins}" th:value="${in.insuranceId}"
+											th:utext="${in.insType}" />
+									</select>
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('insurance')}"
+										th:errors="*{insurance}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">vehicles</label>
+								<div class="col-lg-9">
+									<select th:field="*{vehicles}">
+										<option th:each="vh : ${vhs}" th:value="${vh.vehicleId}"
+											th:utext="${vh.brand.brandName}" />
+									</select>
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('vehicles')}"
+										th:errors="*{vehicles}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">bookingFromDate</label>
+								<div class="col-lg-9">
+									<input type="date" class="form-control"
+										th:field="*{bookingFromDate}" />
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('bookingFromDate')}"
+										th:errors="*{bookingFromDate}"></p>
+
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">bookingToDate
+								</label>
+								<div class="col-lg-9">
+									<input type="date" class="form-control"
+										th:field="*{bookingToDate}" />
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('bookingToDate')}"
+										th:errors="*{bookingToDate}"></p>
+								</div>
+							</div>
+
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">fuelFee
+								</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{fuelFee}" />
+
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('fuelFee')}" th:errors="*{fuelFee}"></p>
+								</div>
+							</div>
+
+							<div class="form-group row">
+								<label class="col-lg-3 col-form-label form-control-label">repairFee</label>
+								<div class="col-lg-9">
+									<input type="text" class="form-control" th:field="*{repairFee}" />
+									<p class="alert alert-danger"
+										th:if="${#fields.hasErrors('repairFee')}"
+										th:errors="*{repairFee}"></p>
+								</div>
+							</div>
+
+							<button type="submit" class="btn btn-success">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
+</body>
+</html>

@@ -18,4 +18,6 @@ public interface VehiculesService {
 
 	Vehicles findById(Long id);
 
+	List<Long> vehiculesAvaible();
+
 }
