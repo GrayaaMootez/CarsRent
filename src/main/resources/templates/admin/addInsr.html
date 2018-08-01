@@ -24,13 +24,21 @@
 					<div class="card-header">
 						<h4 class="mb-0">Add Insurances</h4>
 					</div>
+
 					<div class="card-body">
+					
+														<p class="alert alert-danger"
+										th:if="${message}" th:text="${message}"></p>
+
 						<form th:object="${insr}" th:action="@{add}" action="#"
 							method="post" class="form">
+
+
 							<div class="form-group row">
 								<label class="col-lg-3 col-form-label form-control-label">ID</label>
 								<div class="col-lg-9">
-									<input type="text" class="form-control" th:field="*{insuranceId}" />
+									<input type="text" class="form-control"
+										th:field="*{insuranceId}" />
 									<p class="alert alert-danger"
 										th:if="${#fields.hasErrors('insuranceId')}"
 										th:errors="*{insuranceId}"></p>

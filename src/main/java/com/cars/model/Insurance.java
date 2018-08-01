@@ -22,6 +22,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Table(name = "INSURANCE")
 public class Insurance implements java.io.Serializable {
 
+
 	@NotNull
 	private Long insuranceId;
 	@NotEmpty
@@ -48,11 +49,11 @@ public class Insurance implements java.io.Serializable {
 	}
 
 	@Id
-
 	@Column(name = "INSURANCE_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public Long getInsuranceId() {
 		return this.insuranceId;
 	}
+
 
 	public void setInsuranceId(Long insuranceId) {
 		this.insuranceId = insuranceId;

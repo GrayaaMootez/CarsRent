@@ -22,7 +22,6 @@ public class InsuranceController {
 	@Autowired
 	private InsuranceService service;
 
-
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String allIns(ModelMap model) {
 		model.addAttribute("insrs", service.findAll());
@@ -31,7 +30,7 @@ public class InsuranceController {
 
 	@RequestMapping(value = "add", method = RequestMethod.GET)
 	public String addInsr(ModelMap map) {
-		Insurance insr=new Insurance();
+		Insurance insr = new Insurance();
 		map.addAttribute("insr", insr);
 		return "/admin/addInsr";
 	}
@@ -42,10 +41,24 @@ public class InsuranceController {
 			return "/admin/addInsr";
 		} else {
 
-			Insurance i=service.findById(insr.getInsuranceId());
-			System.out.println(i.equals(null));
+			Insurance i = service.findById(insr.getInsuranceId());
+			if (!i.equals(null)) {
+				model.addAttribute("message", "#{insurance.pk}");
+				return "/admin/addInsr";
+			}
 
-		service.ajout(insr);
+			service.ajout(insr);
+			return "redirect:/admin/insr";
+		}
+	}
+
+	@RequestMapping(value = "update", method = RequestMethod.POST)
+	public String update(@Valid @ModelAttribute("insr") Insurance insr, BindingResult result, ModelMap model) {
+		if (result.hasErrors()) {
+			return "/admin/addInsr";
+		} else {
+
+			service.ajout(insr);
 			return "redirect:/admin/insr";
 		}
 	}
@@ -66,6 +79,5 @@ public class InsuranceController {
 		model.addAttribute("insr", service.findById(id));
 		return "/admin/editInsr";
 	}
-
 
 }

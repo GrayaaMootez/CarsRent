@@ -25,7 +25,7 @@
 						<h4 class="mb-0">Add Insurances</h4>
 					</div>
 					<div class="card-body">
-						<form th:object="${insr}" th:action="@{../add}" action="#"
+						<form th:object="${insr}" th:action="@{../update}" action="#"
 							method="post" class="form">
 
 							<input type="hidden" class="form-control" th:field="*{insuranceId}" />
