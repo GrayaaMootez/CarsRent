@@ -42,6 +42,14 @@ public class GadgetController {
 		if (result.hasErrors()) {
 			return "/admin/addGadget";
 		} else {
+
+			Gadget g = service.findById(gadget.getGadgetId());
+
+			if (!g.equals(null)) {
+				model.addAttribute("message", "true");
+				return "/admin/addGadget";
+			}
+
 		service.ajout(gadget);
 			return "redirect:/admin/gadget";
 		}

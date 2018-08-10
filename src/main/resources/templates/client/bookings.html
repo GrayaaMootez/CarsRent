@@ -1,10 +1,59 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:with="lang=${#locale.language}" th:lang="${lang}"
+	xmlns:dt="http://www.thymeleaf.org/dandelion/datatables">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
+<title>Booking</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<object th:include="fragments/head :: head" th:remove="tag"></object>
 </head>
+
 <body>
+	<div th:include="fragments/topmenuheader :: header"></div>
+	<div class="container">
+		<div class="col-md-4">
+			<h1>Booking</h1>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-body"></div>
+
+			<table class="table" dt:table="true" id="myTableId1">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col">Vehicles</th>
+						<th scope="col">INSURANCE</th>
+						<th scope="col">gadget</th>
+						<th scope="col">bookingFromDate</th>
+						<th scope="col">bookingToDate</th>
+						<th scope="col">fuelFee</th>
+						<th scope="col">repairFee</th>
+						<th scope="col">cost</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="bk : ${bookings}">
+						<td th:text="${bk.vehicles.brand.brandName}"></td>
+						<td th:text="${bk.insurance.insType}"></td>
+						<td th:text="${bk.gadget.gadType}"></td>
+						<td th:text="${bk.bookingFromDate}"></td>
+						<td th:text="${bk.bookingToDate}"></td>
+						<td th:text="${bk.fuelFee}"></td>
+						<td th:text="${bk.repairFee}"></td>
+						<td th:text="${bk.cost}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+
+		<a th:href="@{/client/booking/add}" class="btn btn-primary">Add
+			Brands</a>
+	</div>
+	<div th:include="fragments/homefooter :: footer"></div>
 
 </body>
 </html>

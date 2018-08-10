@@ -20,8 +20,8 @@ public class BookingServiceImlp implements BookingService {
 	}
 
 	@Override
-	public void ajout(Booking bk) {
-		repository.saveAndFlush(bk);
+	public Booking ajout(Booking bk) {
+		return repository.saveAndFlush(bk);
 
 	}
 

@@ -23,6 +23,7 @@ import com.cars.model.Vehicles;
 import com.cars.service.BookingService;
 import com.cars.service.GadgetService;
 import com.cars.service.InsuranceService;
+import com.cars.service.UserMenService;
 import com.cars.service.VehiculesService;
 
 @RequestMapping("/client/booking")
@@ -41,8 +42,14 @@ public class BookingController {
 	@Autowired
 	private InsuranceService iservice;
 
+	private UserMenService uservice;
+
 	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String findAllBooking(Model model) {
+
+		/*Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		UsrMen user=uservice.getUser(auth.getName());*/
+
 		List<Booking> list = service.findAll();
 		model.addAttribute("bookings", list);
 		return "/client/bookings";
@@ -64,7 +71,9 @@ public class BookingController {
 		if (result.hasErrors()) {
 			return "/client/addBooking";
 		} else {
-			service.ajout(booking);
+
+			Booking b=service.ajout(booking);
+
 			return "redirect:/client/booking";
 		}
 	}

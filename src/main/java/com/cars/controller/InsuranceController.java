@@ -43,7 +43,7 @@ public class InsuranceController {
 
 			Insurance i = service.findById(insr.getInsuranceId());
 			if (!i.equals(null)) {
-				model.addAttribute("message", "#{insurance.pk}");
+				model.addAttribute("message", "true");
 				return "/admin/addInsr";
 			}
 

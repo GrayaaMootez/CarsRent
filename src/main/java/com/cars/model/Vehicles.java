@@ -7,10 +7,13 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.DecimalMin;
@@ -24,7 +27,6 @@ import javax.validation.constraints.NotNull;
 @Table(name = "VEHICLES")
 public class Vehicles implements java.io.Serializable {
 
-	@NotNull
 	private Long vehicleId;
 
 	@NotNull
@@ -73,7 +75,8 @@ public class Vehicles implements java.io.Serializable {
 	}
 
 	@Id
-
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "my_seq")
+	@SequenceGenerator(name = "my_seq", sequenceName = "VHS_SEQ", allocationSize = 1)
 	@Column(name = "VEHICLE_ID", unique = true, nullable = false, precision = 22, scale = 0)
 	public Long getVehicleId() {
 		return this.vehicleId;

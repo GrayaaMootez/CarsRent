@@ -40,6 +40,14 @@ public class BrandController {
 		if (result.hasErrors()) {
 			return "/admin/addBrand";
 		} else {
+
+			Brand b = brandService.findById(brand.getBrandId());
+
+			if (!b.equals(null)) {
+				model.addAttribute("message", "true");
+				return "/admin/addBrand";
+			}
+
 			brandService.ajout(brand);
 			return "redirect:/admin/brand";
 		}

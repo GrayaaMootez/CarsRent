@@ -8,7 +8,7 @@ public interface BookingService {
 
 	List<Booking> findAll();
 
-	void ajout(Booking bk);
+	Booking ajout(Booking bk);
 
 	void modifier(Booking bk);
 

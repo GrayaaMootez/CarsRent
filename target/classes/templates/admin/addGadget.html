@@ -25,6 +25,9 @@
 						<h4 class="mb-0">Add Gadgets</h4>
 					</div>
 					<div class="card-body">
+						<p class="alert alert-danger" th:if="${message}"
+							th:text="'primary key violated'"></p>
+
 						<form th:object="${gadget}" th:action="@{add}" action="#"
 							method="post" class="form">
 							<div class="form-group row">

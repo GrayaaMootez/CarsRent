@@ -26,9 +26,10 @@
 					</div>
 
 					<div class="card-body">
-					
-														<p class="alert alert-danger"
-										th:if="${message}" th:text="${message}"></p>
+
+						<p class="alert alert-danger" th:if="${message}"
+							th:text="'primary key violated'"></p>
+														
 
 						<form th:object="${insr}" th:action="@{add}" action="#"
 							method="post" class="form">

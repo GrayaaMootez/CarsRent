@@ -15,5 +15,4 @@ public interface UserMenRepository extends JpaRepository<UsrMen, String> {
 	public UsrMen findUser(@Param("user") String user);
 
 
-
 }
