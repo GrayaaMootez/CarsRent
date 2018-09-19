@@ -1,0 +1,48 @@
+-------------------------------------------------------------------------------
+Test set: com.cars.repository.VehiculesRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 4, Skipped: 0, Time elapsed: 1.776 sec <<< FAILURE! - in com.cars.repository.VehiculesRepositoryTest
+delete(com.cars.repository.VehiculesRepositoryTest)  Time elapsed: 0.076 sec  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.cars.model.Vehicles
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:124)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager.persist(TestEntityManager.java:93)
+	at com.cars.repository.VehiculesRepositoryTest.delete(VehiculesRepositoryTest.java:48)
+
+modify(com.cars.repository.VehiculesRepositoryTest)  Time elapsed: 0.015 sec  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.cars.model.Vehicles
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:124)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager.persist(TestEntityManager.java:93)
+	at com.cars.repository.VehiculesRepositoryTest.modify(VehiculesRepositoryTest.java:89)
+
+findAll(com.cars.repository.VehiculesRepositoryTest)  Time elapsed: 0.012 sec  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.cars.model.Vehicles
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:124)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager.persist(TestEntityManager.java:93)
+	at com.cars.repository.VehiculesRepositoryTest.findAll(VehiculesRepositoryTest.java:63)
+
+findOne(com.cars.repository.VehiculesRepositoryTest)  Time elapsed: 0.026 sec  <<< ERROR!
+javax.persistence.PersistenceException: org.hibernate.PersistentObjectException: detached entity passed to persist: com.cars.model.Vehicles
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:124)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:58)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:775)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:748)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:753)
+	at org.hibernate.jpa.spi.AbstractEntityManagerImpl.persist(AbstractEntityManagerImpl.java:1146)
+	at org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager.persist(TestEntityManager.java:93)
+	at com.cars.repository.VehiculesRepositoryTest.findOne(VehiculesRepositoryTest.java:36)
+

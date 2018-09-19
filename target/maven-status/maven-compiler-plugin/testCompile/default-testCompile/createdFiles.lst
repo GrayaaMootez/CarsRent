@@ -1,0 +1,4 @@
+com\cars\controller\VehiclesControllerTest.class
+com\cars\repository\VehiculesRepositoryTest.class
+com\cars\service\VehiculesServiceTest.class
+com\cars\MyApplicationTest.class
